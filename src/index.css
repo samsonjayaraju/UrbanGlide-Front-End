@@ -160,3 +160,80 @@
     transition-duration: 0.001ms !important;
   }
 }
+
+/* UrbanGlide visual refinement — presentation only. */
+@theme {
+  --color-muted: #66695e;
+  --color-night-muted: #b2b5a6;
+}
+body { font-feature-settings: 'ss01' on; }
+button, input, select { -webkit-tap-highlight-color: transparent; }
+.ug-button { position: relative; box-shadow: 0 1px 2px #14150f08; }
+.ug-button:focus-visible { outline: 3px solid #7e9f23; outline-offset: 4px; }
+.ug-button:active:not(:disabled) { transform: translateY(1px); }
+input:not([type='checkbox']), select { min-width: 0; transition: border-color 180ms, box-shadow 180ms, background-color 180ms; }
+input:focus, select:focus { box-shadow: 0 0 0 4px #a6d61d20; }
+.ug-card { border-radius: 22px; box-shadow: 0 2px 3px #14150f02, 0 10px 28px -24px #14150f38; }
+.ug-card-night { background: linear-gradient(125deg, #24271b, #16180f); border-color: #353a29; box-shadow: 0 12px 30px -24px #14150f80; }
+.ug-page { padding-top: 40px; padding-bottom: 48px; }
+.ug-page-title { font-size: clamp(1.8rem, 3vw, 2.65rem); line-height: 1.13; letter-spacing: -.055em; max-width: 24ch; }
+.ug-page-title + p { max-width: 62ch; line-height: 1.7; }
+.ug-page > .space-y-5 { margin-top: 32px; }
+.ug-section-label, .ug-nav-caption { font-size: 10px; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; color: var(--color-muted); }
+.ug-section-label { margin-bottom: 24px; }
+.ug-sidebar { background: #fafaf6; }
+.ug-sidebar > div:first-child { padding: 32px 24px; }
+.ug-nav-caption { padding: 12px 27px 18px; }
+.ug-sidebar nav button { height: 48px; margin-bottom: 6px; }
+.ug-sidebar nav button[aria-current='page'] { box-shadow: 0 6px 16px -10px #14150f80; }
+.ug-sidebar nav button[aria-current='page'] svg { color: var(--color-lime); }
+.ug-bottom-nav { box-shadow: 0 -8px 28px -20px #14150f40; }
+.ug-bottom-nav button[aria-current='page'] svg { background: var(--color-lime-dim); outline: 7px solid var(--color-lime-dim); border-radius: 5px; }
+.ug-bottom-nav button { gap: 7px; height: 72px; }
+.ug-form-section { display: flex; align-items: center; gap: 12px; padding: 8px 0 12px; }
+.ug-form-section > span { display: grid; place-items: center; width: 30px; height: 30px; background: var(--color-lime-dim); border: 1px solid #d6e6a5; border-radius: 10px; color: #465a13; font: 600 11px var(--font-mono); }
+.ug-form-section h3 { font-size: 14px; font-weight: 800; letter-spacing: -.02em; }
+.ug-booking-grid .ug-card { padding: 28px; }
+.ug-booking-grid .ug-form-section:not(:first-child) { border-top: 1px solid var(--color-line); padding-top: 24px; margin-top: 24px; }
+.ug-booking-map { min-height: 400px; }
+.ug-route { padding: 8px 0; }
+.ug-route p.truncate { white-space: normal; overflow-wrap: anywhere; font-size: 16px; line-height: 1.5; }
+.ug-ride-status { color: var(--color-canvas); font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; letter-spacing: -.05em; font-weight: 800; margin: 24px 0 30px; }
+.ug-ride-summary, .ug-progress-card { padding: 28px; }
+.ug-receipt { position: relative; overflow: hidden; border-top: 4px solid var(--color-ink); padding: 28px; }
+.ug-receipt-heading { padding-bottom: 20px; border-bottom: 1px dashed var(--color-line-strong); }
+.ug-receipt-amount { font-size: clamp(2rem, 5vw, 3rem); letter-spacing: -.06em; margin: 26px 0 18px; }
+.ug-payment-success { padding: 16px 18px; border-radius: 12px; background: var(--color-ok-soft); border: 1px solid #c6e0ce; line-height: 1.8; color: #226e49; }
+.ug-auth-form { max-width: 420px; }
+.ug-auth-form h1 { font-size: clamp(2rem, 4vw, 2.75rem); letter-spacing: -.06em; }
+.ug-auth-form form { padding-top: 8px; }
+.ug-auth-form input { height: 50px; }
+.ug-auth-form form > button { margin-top: 12px; }
+.ug-eyebrow { color: #4d6418; border: 1px solid #d8e8a6; font-size: 10px; letter-spacing: .09em; }
+.ug-hero h1 { letter-spacing: -.06em; line-height: 1.04; }
+.ug-hero h1 span { color: #648313; }
+.ug-hero > div > p { line-height: 1.75; }
+.ug-hero-visual > .map-grid { box-shadow: 0 24px 48px -32px #14150f65; }
+.ug-hero-visual > .ug-card { max-width: calc(100% - 40px); }
+.ug-hero-visual .font-mono.text-\[12px\] { font-family: var(--font-sans); font-size: 11px; }
+@media (min-width: 768px) and (max-width: 1023px) {
+  .ug-hero { grid-template-columns: 1.05fr 1fr; gap: 32px; padding-top: 72px; padding-bottom: 88px; }
+  .ug-hero h1 { font-size: 3.25rem; }
+  .ug-hero-visual > .map-grid { aspect-ratio: 3/4; }
+  .ug-hero .sm\:flex-row { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 767px) {
+  .ug-page { padding-top: 28px; }
+  .ug-page > .space-y-5 { margin-top: 24px; }
+  .ug-card { border-radius: 18px; }
+  .ug-booking-grid .ug-card, .ug-ride-summary, .ug-progress-card, .ug-receipt { padding: 22px; }
+  .ug-booking-map { min-height: 240px; }
+  .ug-auth-form { padding: 26px 0; }
+  .ug-hero { gap: 44px; padding-top: 44px; }
+  .ug-hero h1 { font-size: clamp(2.7rem, 10vw, 4rem); }
+}
+@media (hover:hover) and (prefers-reduced-motion:no-preference) {
+  .ug-button:hover:not(:disabled) { transform: translateY(-1px); }
+}
+.ug-hero { scroll-margin-top: 64px; }
+.ug-hero h1 span { display: block; }

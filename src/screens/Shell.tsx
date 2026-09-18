@@ -31,18 +31,20 @@ export function Shell({
   const toast = useToast()
   const [logout, setLogout] = useState(false)
   return (
-    <div className="min-h-screen bg-canvas lg:grid lg:grid-cols-[260px_1fr]">
+    <div className="ug-shell min-h-screen bg-canvas lg:grid lg:grid-cols-[260px_1fr]">
       {/* Sidebar (desktop) */}
-      <aside className="hidden lg:flex flex-col border-r border-line bg-surface sticky top-0 h-screen">
+      <aside className="ug-sidebar hidden lg:flex flex-col border-r border-line bg-surface sticky top-0 h-screen">
         <div className="p-5">
           <button onClick={() => nav("landing")}>
             <Logo />
           </button>
         </div>
+        <p className="ug-nav-caption">{user?.role === "DRIVER" ? "Driver workspace" : "Your journeys"}</p>
         <nav className="flex-1 px-3 space-y-1">
           {NAV.map((n) => (
             <button
               key={n.r}
+              aria-current={active === n.r ? "page" : undefined}
               onClick={() => nav(n.r)}
               className={`w-full flex items-center gap-3 px-3.5 h-11 rounded-xl text-sm font-semibold transition-colors ${
                 active === n.r
@@ -80,15 +82,16 @@ export function Shell({
       <main className="pb-24 lg:pb-0">{children}</main>
 
       {/* Mobile bottom nav */}
-      <nav className="lg:hidden fixed bottom-0 inset-x-0 z-30 bg-surface border-t border-line grid grid-cols-5 pb-[env(safe-area-inset-bottom)]">
+      <nav className="ug-bottom-nav lg:hidden fixed bottom-0 inset-x-0 z-30 bg-surface border-t border-line grid grid-cols-5 pb-[env(safe-area-inset-bottom)]">
         {NAV.map((n) => {
           const I = Icon[n.icon]
           const on = active === n.r
           return (
             <button
               key={n.r}
+              aria-current={active === n.r ? "page" : undefined}
               onClick={() => nav(n.r)}
-              className={`flex flex-col items-center justify-center gap-0.5 h-16 text-[10px] font-semibold ${
+              className={`relative flex flex-col items-center justify-center gap-0.5 h-16 text-[10px] font-semibold ${
                 on ? "text-ink" : "text-muted"
               }`}
             >

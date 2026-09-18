@@ -34,8 +34,8 @@ export function Page({
   children: ReactNode
 }) {
   return (
-    <div className="p-5 md:p-8 max-w-5xl mx-auto anim-fade">
-      <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight">
+    <div className="ug-page p-5 md:p-8 max-w-5xl mx-auto anim-fade">
+      <h1 className="ug-page-title text-2xl md:text-3xl font-extrabold tracking-tight">
         {title}
       </h1>
       {sub && <p className="mt-2 text-ink-soft">{sub}</p>}
@@ -68,3 +68,7 @@ export function Refresh({ refresh }: { refresh: () => void }) {
 }
 export const formValues = (form: HTMLFormElement) =>
   Object.fromEntries(new FormData(form).entries()) as Record<string, string>
+
+export function FormSection({number,title}:{number:string;title:string}) {
+ return <div className="ug-form-section"><span aria-hidden="true">{number}</span><h3>{title}</h3></div>
+}

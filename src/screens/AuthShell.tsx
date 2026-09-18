@@ -20,7 +20,7 @@ export function AuthShell({
 }) {
   const nav = useNav()
   return (
-    <div className="min-h-screen lg:grid lg:grid-cols-2">
+    <div className="ug-auth min-h-screen lg:grid lg:grid-cols-2">
       {/* form side */}
       <div className="flex flex-col min-h-screen lg:min-h-0">
         <div className="p-5 md:p-8">
@@ -29,7 +29,7 @@ export function AuthShell({
           </button>
         </div>
         <div className="flex-1 flex items-center justify-center px-5 pb-10">
-          <div className="w-full max-w-sm anim-fade-up">{children}</div>
+          <div className="ug-auth-form w-full max-w-sm anim-fade-up">{children}</div>
         </div>
       </div>
       {/* visual side */}

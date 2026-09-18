@@ -9,7 +9,7 @@ export function Landing() {
   const nav = useNav()
   const [menu, setMenu] = useState(false)
   return (
-    <div className="min-h-screen bg-canvas">
+    <div className="ug-landing min-h-screen bg-canvas">
       {/* Nav */}
       <header className="sticky top-0 z-40 bg-canvas/85 backdrop-blur border-b border-line">
         <div className="mx-auto max-w-7xl px-5 h-16 flex items-center justify-between">
@@ -87,10 +87,10 @@ export function Landing() {
       {/* Hero */}
       <section
         id="home"
-        className="mx-auto max-w-7xl px-5 pt-14 pb-16 md:pt-20 md:pb-24 grid lg:grid-cols-2 gap-12 items-center"
+        className="ug-hero mx-auto max-w-7xl px-5 pt-14 pb-16 md:pt-20 md:pb-24 grid lg:grid-cols-2 gap-12 items-center"
       >
         <div className="anim-fade-up">
-          <span className="inline-flex items-center gap-1.5 text-[12px] font-bold uppercase tracking-wide text-lime-deep bg-lime-dim px-3 h-7 rounded-full">
+          <span className="ug-eyebrow inline-flex items-center gap-1.5 text-[12px] font-bold uppercase tracking-wide text-lime-deep bg-lime-dim px-3 h-7 rounded-full">
             <Icon.Bolt size={13} /> Urban mobility demonstration
           </span>
           <h1 className="mt-5 text-[clamp(2.4rem,6vw,4.5rem)] font-extrabold tracking-tight leading-[0.98]">
@@ -129,7 +129,7 @@ export function Landing() {
           </div>
         </div>
         {/* Hero visual */}
-        <div className="relative anim-scale-in">
+        <div className="ug-hero-visual relative anim-scale-in">
           <FauxMap className="aspect-[4/3] rounded-3xl border border-line shadow-2xl" />
           <Card className="absolute -bottom-5 left-5 right-5 sm:right-auto sm:w-72 shadow-xl">
             <div className="flex items-center gap-3">

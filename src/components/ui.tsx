@@ -52,7 +52,7 @@ export function Button({
     <button
       {...props}
       disabled={loading || props.disabled}
-      className={`inline-flex items-center justify-center gap-2 rounded-xl font-semibold tracking-tight transition-all duration-200 disabled:opacity-55 disabled:pointer-events-none ${sizes[size]} ${variants[variant]} ${
+      className={`ug-button inline-flex items-center justify-center gap-2 rounded-xl font-semibold tracking-tight transition-all duration-200 disabled:opacity-55 disabled:pointer-events-none ${sizes[size]} ${variants[variant]} ${
         full ? "w-full" : ""
       } ${className}`}
     >
@@ -285,7 +285,7 @@ export function Card({
 }) {
   return (
     <div
-      className={`rounded-2xl border ${
+      className={`ug-card ${night ? "ug-card-night" : ""} rounded-2xl border ${
         night ? "bg-night-2 border-night-line" : "bg-surface border-line"
       } ${pad ? "p-5" : ""} ${className}`}
     >
@@ -401,7 +401,7 @@ export function RouteBlock({
   distanceKm?: number
 }) {
   return (
-    <div className="flex gap-3">
+    <div className="ug-route flex gap-3">
       <div className="flex flex-col items-center pt-1.5">
         <span
           className={`w-2.5 h-2.5 rounded-full ${night ? "bg-lime" : "bg-ink"}`}

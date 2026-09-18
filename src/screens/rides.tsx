@@ -18,6 +18,7 @@ import {
 import { RadarSearch } from "../components/RadarSearch"
 import { money, RIDE_STATUS_LABEL } from "../lib/data"
 import {
+  FormSection,
   ErrorNotice,
   Loading,
   Page,
@@ -132,7 +133,7 @@ export function BookRide() {
       title="Where are we going?"
       sub="Enter pickup and destination names and coordinates."
     >
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="ug-booking-grid grid md:grid-cols-2 gap-6">
         <Card>
           <ErrorNotice error={action.error || gps.error} />
           <form
@@ -161,6 +162,7 @@ export function BookRide() {
               })
             }}
           >
+            <FormSection number="01" title="Your pickup" />
             <TextField name="pickupLocation" label="Pickup" maxLength={255} />
             <Button
               type="button"
@@ -204,6 +206,7 @@ export function BookRide() {
                 />
               </Field>
             </div>
+            <FormSection number="02" title="Your destination" />
             <TextField
               name="dropLocation"
               label="Destination"
@@ -256,7 +259,7 @@ export function BookRide() {
             </div>
           )}
         </Card>
-        <FauxMap className="min-h-64 rounded-3xl border border-line">
+        <FauxMap className="ug-booking-map min-h-64 rounded-3xl border border-line">
           <p className="absolute bottom-4 left-4 right-4 text-sm bg-surface rounded-xl p-3">
             Route illustration · not a live map
           </p>
@@ -317,9 +320,10 @@ export function RideDetail({
     >
       <ErrorNotice error={ride.error || action.error} />
       <div className="grid md:grid-cols-2 gap-5">
-        <Card night className="on-night">
+        <Card night className="on-night ug-ride-summary">
           <div className="mb-5">
             <RideBadge status={r.status} />
+            <h2 className="ug-ride-status">{RIDE_STATUS_LABEL[r.status]}</h2>
           </div>
           <RouteBlock
             night
@@ -362,7 +366,8 @@ export function RideDetail({
             </p>
           )}
         </Card>
-        <Card>
+        <Card className="ug-progress-card">
+          <h2 className="ug-section-label">Journey progress</h2>
           <RideTimeline status={r.status} />
           <p className="text-sm text-muted mt-4">
             Updates refresh every 3 seconds during an active ride. No live
@@ -454,12 +459,12 @@ function PaymentCard({
     p.paymentMethod,
   )
   return (
-    <Card>
-      <div className="flex justify-between items-center gap-3">
+    <Card className="ug-receipt">
+      <div className="ug-receipt-heading flex flex-wrap justify-between items-center gap-3">
         <h2 className="font-bold text-xl">Payment · Ride #{p.rideId}</h2>
         <PaymentBadge status={p.paymentStatus} />
       </div>
-      <p className="font-mono text-2xl font-bold my-4">{money(p.amount)}</p>
+      <p className="ug-receipt-amount font-mono text-2xl font-bold my-4">{money(p.amount)}</p>
       <p className="text-sm text-muted mb-4">
         Demonstration only — no money moves. Do not enter card numbers, CVVs or
         UPI PINs.
@@ -500,7 +505,7 @@ function PaymentCard({
           </Button>
         </>
       ) : (
-        <p role="status" className="text-ok break-all">
+        <p role="status" className="ug-payment-success text-ok break-all">
           Payment successful · {p.paymentMethod}
           <br />
           {p.transactionReference}

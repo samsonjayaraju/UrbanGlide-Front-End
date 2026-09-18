@@ -12,6 +12,7 @@ import {
   Input,
 } from "../components/ui"
 import {
+  FormSection,
   ErrorNotice,
   Loading,
   Page,
@@ -52,6 +53,7 @@ export function DriverProfile({
           })
         }}
       >
+        <div className="sm:col-span-2"><FormSection number="01" title="Driver information" /></div>
         <TextField
           name="name"
           label="Full name"
@@ -70,6 +72,7 @@ export function DriverProfile({
           value={profile?.licenseNumber}
           maxLength={60}
         />
+        <div className="sm:col-span-2"><FormSection number="02" title="Vehicle details" /></div>
         <TextField
           name="vehicleNumber"
           label="Vehicle number"
